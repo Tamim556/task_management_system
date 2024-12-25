@@ -50,6 +50,9 @@
                             style=" height: 32px; border-radius: 5px; border: 1px solid #2B2F67; background: #FFF; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.10); display: flex; justify-content: center; align-items: center;">
                             All <b> ({{ App\Models\Task::count() }})</b>
                         </div>
+                        <a class="btn" href="{{route('admin.task.create')}}">Create Task</a>
+
+                       
 
 
                         <div class="d-flex"

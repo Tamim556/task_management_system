@@ -7,6 +7,7 @@ use App\Models\Task;
 use App\Models\TaskImage;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
@@ -117,7 +118,7 @@ class TaskController extends Controller
 
             $task= task::where('id' , $request->task_id)->first();
     
-            $task->created_by = auth()->id();
+            $task->created_by = Auth::user()->id;
 
             $task->title = $request->title;
             $task->status = $request->status;

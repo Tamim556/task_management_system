@@ -86,7 +86,7 @@ style="height: 100vh; position: fixed;">
             </a>
         </li>
         
-        <form id="logout-form" method="task" action="{{ route('logout') }}" style="display: none;">
+        <form id="logout-form" method="post" action="{{ route('logout') }}" style="display: none;">
             @csrf
         </form>
         
