@@ -16,13 +16,26 @@ class TaskController extends Controller
 {
     //
 
-    public function allTask(){
+    public function allTaskget(){
 
-        return 'hi';
 
-        // $task = Task::where('id' , $task)->first();
+        $tasks = Task::orderBy('id', 'desc')->get();
 
-        // return view('backend.task.view' , compact('task'));
+
+        if ($tasks->isNotEmpty()) {
+            return response()->json([
+                'status' => true,
+                'message' => 'tasks get successfully',
+                'data' => $tasks
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'No tasks found',
+            ]);
+        }
+
+
 
     }
 
