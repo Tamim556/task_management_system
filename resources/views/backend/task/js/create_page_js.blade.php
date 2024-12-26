@@ -1,10 +1,9 @@
+
 <script>
     $(document).ready(function() {
-        // Define a custom button for image insertion
         var insertImageButton = function(context) {
             var ui = $.summernote.ui;
 
-            // Create button
             var button = ui.button({
                 contents: '<i class="note-icon-picture"></i>',
                 tooltip: 'Insert Image',
@@ -34,7 +33,7 @@
                 }
             });
 
-            return button.render(); // Return button as jquery object
+            return button.render(); 
         }
 
         $('#task_body').summernote({
@@ -63,7 +62,6 @@
     });
 
     function putValueCache(contents) {
-        // Your caching logic here
         console.log(contents);
     }
 
@@ -74,7 +72,6 @@
 
         $("#taskStoreFrom").on('submit', function(e) {
             e.preventDefault();
-            // parent register
 
             $.ajax({
                 url: $(this).attr('action'),
@@ -87,7 +84,6 @@
 
                     $(document).find('span.error-text').text('');
                 },
-
                 success: function(data) {
 
                     if (data.status == false) {
@@ -97,8 +93,6 @@
                             $('span.' + prefix + '_error').text(val[0]);
                         })
                     } else {
-
-
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
@@ -106,14 +100,9 @@
                             showConfirmButton: false,
                             timer: 1500,
                         });
-
                         $('#taskStoreFrom')[0].reset();
-
                         $('#task_body').html('');      
-
-
                         window.location.href = '../task/index';
-
                         $('#imageDiv').load(location.href + ' #imageDiv');
 
                     }
@@ -141,7 +130,6 @@
         $('#selected-image').attr('src', imageSrc);
         document.getElementById('image_div').style.display = 'block';
 
-        // Remove 'show-tick' and 'clicked' classes and hide tick marks from all divs
         const divs = document.querySelectorAll('.custom-div');
         divs.forEach(div => {
             div.classList.remove('show-tick', 'clicked');
@@ -149,7 +137,6 @@
             if (tickMark) tickMark.style.display = 'none';
         });
 
-        // Apply classes to the selected image's container and show the tick mark
         const selectedDiv = document.querySelector(`.custom-div[data-image-name="${name}"]`);
         if (selectedDiv) {
             selectedDiv.classList.add('show-tick', 'clicked');
@@ -172,7 +159,6 @@
 
         $("#taskUpdateFrom").on('submit', function(e) {
             e.preventDefault();
-            // parent register
 
             $.ajax({
                 url: $(this).attr('action'),
@@ -208,7 +194,6 @@
                         $('#taskUpdateFrom')[0].reset();
 
                         window.location.href = '../index';
-                        // $('#imageDiv').load(location.href + ' #imageDiv');
 
                     }
                 }
@@ -226,7 +211,6 @@
 
         $("#imageStoreFrom").on('submit', function(e) {
             e.preventDefault();
-            // parent register
 
             $.ajax({
                 url: $(this).attr('action'),
@@ -269,3 +253,65 @@
 
     });
 </script>
+
+
+<style>
+    .custom-bg {
+        background-color: #515ed5;
+        color: white;
+        font-size: 22px;
+        padding: 5px;
+
+        gap: 0px;
+        border-radius: 5px 5px 0px 0px;
+        opacity: 0px;
+    }
+
+    .custom-shadow {
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 5px;
+        border: #606BD0;
+    }
+
+
+    .position-relative {
+        position: relative;
+    }
+
+    .position-absolute {
+        position: absolute;
+    }
+
+    .tick-mark {
+        display: none;
+        width: 20px;
+        height: 20px;
+        background-color: green;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 50%;
+        top: 10px;
+        right: 10px;
+    }
+
+    .show-tick .tick-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clicked {
+        border: 2px solid green;
+    }
+
+    .custom-hover-btn:hover {
+        background-color: #606BD0;
+        border-color: #606BD0;
+        color: white;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+</style>

@@ -11,28 +11,28 @@
                         account_circle
                     </span>
                 </div>
-                
-                
+
+
                 <hr />
-                
- 
+
+
                 <div style="" class="px-5">
                     <br>
- 
+
                     <div class="row">
 
                         <div class="col-md-7">
-    
-                          <b>Title</b> 
-                
+
+                            <b>Title</b>
+
                             <div>
-                                {{$task->title}}
-    
+                                {{ $task->title }}
+
                             </div>
-    
+
                             <br>
 
-                            <b>Body</b> 
+                            <b>Body</b>
 
 
                             {!! $task->task_body !!}
@@ -46,50 +46,49 @@
 
                             <br>
 
-                            <b>Due Date</b> 
+                            <b>Due Date</b>
 
                             <div>
-                                {{$task->due_date}}
+                                {{ $task->due_date }}
 
                             </div>
-    
-                               
+
+
                         </div>
-                
+
                         <div class="col-md-5 px-5 mb-5">
-    
+
                             <div>
-    
-                                <img  src="{{ asset('storage/task-image/' . $task->image) }}"
-                                                    class="img-fluid mx-auto d-block" alt="Image 1"
-                                                   >
-    
-    
+
+                                <img src="{{ asset('storage/task-image/' . $task->image) }}"
+                                    class="img-fluid mx-auto d-block" alt="Image 1">
+
+
                             </div>
-                
-                
+
+
                         </div>
-    
-    
-    
-                        
-                
-                
+
+
+
+
+
+
                     </div>
- 
-               
+
+
                 </div>
- 
+
             </div>
 
-           
+
         </div>
 
     </main>
 
 
 
-   
+
 
 
 

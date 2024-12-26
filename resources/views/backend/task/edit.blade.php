@@ -1,81 +1,13 @@
 <x-backend.layouts.master>
 
-  
-    <style>
-        .custom-bg {
-            background-color: #515ed5;
-            /* Your desired hexadecimal color */
-            color: white;
-            font-size: 22px;
-            padding: 5px;
-
-            gap: 0px;
-            border-radius: 5px 5px 0px 0px;
-            opacity: 0px;
-        }
-
-        .custom-shadow {
-            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 5px;
-            border: #606BD0;
-        }
-
-
-        .position-relative {
-            position: relative;
-        }
-
-        .position-absolute {
-            position: absolute;
-        }
-
-        .tick-mark {
-            display: none;
-            width: 20px;
-            height: 20px;
-            background-color: green;
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            line-height: 20px;
-            border-radius: 50%;
-            top: 10px;
-            right: 10px;
-        }
-
-        .show-tick .tick-mark {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .clicked {
-            border: 2px solid green;
-        }
-
-        .custom-hover-btn:hover {
-            background-color: #606BD0;
-            border-color: #606BD0;
-            color: white;
-            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-    </style>
-
-
     <main class="container-custom">
         <div class="col-md-10 ms-sm-auto col-lg-10">
-
-
             <!-- main content section starts here -->
             <div class="ps-3 ">
                 <h2 class="px-4 my-3">Add New Task</h2>
                 <hr />
-
                 <div style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10)" class="px-lg-4 px-2">
                     <br>
-
                     <div>
                         <div class="container">
                             <div class="row">
@@ -84,13 +16,8 @@
 
                                     <form action="{{ route('admin.task.update') }}" id="taskUpdateFrom" method="post">
                                         @csrf
-
-
                                         <input type="hidden" name="main_image" id="main_image" value="{{$task->image}}">
-
                                         <input type="hidden" name="task_id" id="" value="{{$task->id}}">
-
-
                                         <div class="mb-4">
 
                                             <label for="">Task Title</label>

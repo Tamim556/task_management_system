@@ -10,9 +10,6 @@
 
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('template/news_site/css/styles.css') }}" />
-    <link rel="stylesheet" href="{{ asset('template/news_site/css/index.css') }}" />  
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     
@@ -58,18 +55,9 @@
 
 
   <body>
-    <!-- navbar starts here -->
 
 
 
-
-   
-    <!-- navbar ends here -->
-
-    {{-- <div class=""> --}}
-      {{-- <div class="row"> --}}
-
-        <!-- sidebar starts here -->
 
         <x-backend.layouts.partials.sidenav/>
 
@@ -99,9 +87,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script> --}}
    
  <!-- Include Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>

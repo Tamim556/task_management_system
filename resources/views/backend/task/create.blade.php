@@ -1,126 +1,42 @@
 <x-backend.layouts.master>
 
-
-
-    <style>
-        .custom-bg {
-            background-color: #515ed5;
-            /* Your desired hexadecimal color */
-            color: white;
-            font-size: 22px;
-            padding: 5px;
-
-            gap: 0px;
-            border-radius: 5px 5px 0px 0px;
-            opacity: 0px;
-        }
-
-        .custom-shadow {
-            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 5px;
-            border: #606BD0;
-        }
-
-
-        .position-relative {
-            position: relative;
-        }
-
-        .position-absolute {
-            position: absolute;
-        }
-
-        .tick-mark {
-            display: none;
-            width: 20px;
-            height: 20px;
-            background-color: green;
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            line-height: 20px;
-            border-radius: 50%;
-            top: 10px;
-            right: 10px;
-        }
-
-        .show-tick .tick-mark {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .clicked {
-            border: 2px solid green;
-        }
-
-        .custom-hover-btn:hover {
-            background-color: #606BD0;
-            border-color: #606BD0;
-            color: white;
-            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-    </style>
-
-
+   
     <main class="container-custom">
         <div class="col-md-10 ms-sm-auto col-lg-10">
-
-
             <!-- main content section starts here -->
             <div class="ps-3 ">
                 <h2 class="px-4 my-3">Add New Task</h2>
                 <hr />
-
                 <div style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10)" class="px-lg-4 px-2">
                     <br>
 
                     <div>
                         <div class="container">
                             <div class="row">
-
-
-
                                 <div class="col-md-12">
-
                                     <form action="{{ route('admin.task.store') }}" id="taskStoreFrom" method="post">
                                         @csrf
-
-
                                         <input type="hidden" name="main_image" id="main_image" value="">
-
                                         <input type="hidden" name="draft" id="draft" value="">
-
-
                                         <div class="mb-4">
-
                                             <label for="">Task Title</label>
-
                                             <input type="text" id="title" name="title"
                                                 class="form-control" id="exampleInputEmail1"
                                                 aria-describedby="emailHelp" placeholder="Head Line"
                                                 style="height: 50px;">
                                         </div>
                                         <span class="text-danger error-text title_error"></span>
-
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-8">
-                                   
-
                                     <h1 class="mt-3 custom-bg">
                                         Description
                                     </h1>
                                     <div class="mb-2 w-100 mb-4 mt-4">
-
                                         <textarea class="w-100" rows="4" name="task_body" id="task_body"></textarea>
                                     </div>
                                     <span class="text-danger error-text task_body_error"></span>
-
-
                                     <div class="d-flex mb-4 justify-content-between">
                                         <div class="">
                                             <button type="submit" id="draftButton"
@@ -135,16 +51,12 @@
                                             </button>
                                         </div>
                                     </div>
-
                                 </div>
 
-
                                 <div class="col-sm-12 col-md-4 mb-5">
-
                                     <h1 class="mt-3 custom-bg">
                                         Status
                                     </h1>
-
                                     <select class="form-control w-100" id="status" name="status">
                                         <option value="" selected disabled>Select status</option>
                                         <option value="assin">assin</option>
@@ -153,24 +65,13 @@
                                         <option value="in_progress">In Progress</option>
                                         <option value="completed">Completed</option>
                                       </select>
-                                  
-
                                       <span class="text-danger error-text status_error"></span>
-
-
-                                  
-
                                       <h1 class="mt-3 custom-bg">
                                         Due Date
                                     </h1>
-
                                     <input type="date" name="due_date" class="form-control w-100"
                                     placeholder="Select Due Date" />
-
                                       <span class="text-danger error-text due_date_error"></span>
-
-
-
                                     <h1 class="mt-3 custom-bg">
                                         Task Image
                                     </h1>
@@ -178,23 +79,16 @@
                                         setatt class="btn btn-outline-primary">Set Image</button>
 
                                     <span class="text-danger error-text main_image_error"></span>
-
-
                                     <div id="image_div" style="display: none">
                                         <img id="selected-image" height=""
                                             src="https://wearecardinals.com/wp-content/uploads/2020/04/u1Re9qgMfM8d6kumlW85PS6s55jQh5fbdmppgQsP.jpeg"
                                             class="img-fluid mt-3 mb-3" alt="...">
 
-
                                     </div>
-
 
                                 </div>
                             </div>
-
-
                             </form>
-
                         </div>
 
                     </div>
@@ -210,32 +104,23 @@
 
 
 
-
-
                 <!-- Start Image off canvus -->
 
                 <div class="offcanvas offcanvas-bottom pb-5" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel"
                     data-image-type="main" style="height: 900px; overflow-y: auto;">
-
                     <div id="imageDiv">
-
                         <div class="offcanvas-header" style="height: 70px;background-color: #f0f0f0;">
                             <h5 class="offcanvas-title w-100" id="offcanvasBottomLabel"
                                 style="font-size: 24px;font-weight: 600;">Media Files</h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
-
                         <div class="mx-3 my-3" style="font-size: 18px;font-weight: 600;">
                             Recently uploaded files
                         </div>
-
                         <div class="row  d-flex mx-4">
                             <div class="col-md-7 mb-3 ">
                                 <div class="d-flex gap-3 justify-content-between">
-
-
-
                                     @foreach (App\Models\TaskImage::orderBy('id', 'desc')->take(3)->get() as $task_image)
                                     <div class="position-relative col-4 custom-div" 
                                          data-image-name="{{ $task_image->name }}" 
@@ -253,9 +138,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                
-
-
+                            
                                 </div>
                             </div>
 
@@ -267,12 +150,9 @@
                                         <div class="row justify-content-center">
                                             <div class="col-md-6">
                                                 <div class="custom-file mb-3">
-
                                                     <form action="{{ route('admin.image.upload') }}" method="post"
                                                         id="imageStoreFrom" enctype="multipart/form-data">
                                                         @csrf
-
-
                                                         <input type="file" name="image" class=""
                                                             id="image" accept="image/*">
                                                         <label class="custom-file-label" for="customFile">Choose
@@ -310,9 +190,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div class="mx-5 mb-5">
                             <div class="row gap-4  " style="justify-content: space-between;">
 
@@ -357,14 +234,8 @@
                                     <button data-bs-dismiss="offcanvas" aria-label="Close" class="py-2 btn w-100"
                                         style=" color: white; font-size: 20px;">Select</button>
                                 </div>
-
                             </div>
-
-
                         </div>
-
-
-
                     </div>
                 </div>
 
@@ -380,15 +251,12 @@
 
 
 
-
-
     </main>
 
 
 
     @push('page_scripts')
         @include('backend.task.js.create_page_js')
-        {{-- @include('backend.category.js.index_page_js') --}}
     @endpush
 
 
