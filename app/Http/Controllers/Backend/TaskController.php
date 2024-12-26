@@ -38,6 +38,24 @@ class TaskController extends Controller
 
 
     }
+    public function singleTask($id){
+        $task = Task::where('id', $id)->first();
+        if ($task) {
+            return response()->json([
+                'status' => true,
+                'message' => 'task get successfully',
+                'data' => $task
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'No task found',
+            ]);
+        }
+
+
+
+    }
 
 
     public function show($task){

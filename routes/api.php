@@ -11,7 +11,10 @@ Route::get('/user', function (Request $request) {
 
 
 
-Route::get('/tasks/get', [TaskController::class, 'allTaskget']);
+Route::get('/tasks', [TaskController::class, 'allTaskget']);
+
+Route::get('/task/{id}', [TaskController::class, 'singleTask']);
+
 
 
 
