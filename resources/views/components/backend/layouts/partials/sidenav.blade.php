@@ -47,7 +47,7 @@ style="height: 100vh; position: fixed;">
             <div class="collapse" id="product-collapse">
                 <ul class="btn-toggle-nav pb-1 bold-text ">
                 <li class="ms-4 py-1 mt-2" style="">
-                    <a href="{{route('admin.task.index')}}" class="text-black sub_menu_size text-decoration-none">All task</a>
+                    <a href="{{route('admin.task.index')}}" class="text-black sub_menu_size text-decoration-none">All tasks</a>
                 </li>
 
                 <li class="ms-4 py-1 mt-2" style="">
@@ -64,17 +64,6 @@ style="height: 100vh; position: fixed;">
         </li>
        
 
-
-
-
-
-        <li class="mb-4 d-flex align-items-center">
-            <i class="bi bi-speedometer2 fs-5 me-2" style="color: #898e99"></i>
-            
-            <a href="" class="text-decoration-none menu_size text-black align-items-center">
-            Menu
-            </a>
-        </li>
 
         <li class="mb-4 d-flex align-items-center">
             <i class="bi bi-door-open-fill me-2 fs-4" style="color: #898e99"></i>

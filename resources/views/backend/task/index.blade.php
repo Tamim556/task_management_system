@@ -50,7 +50,7 @@
                             style=" height: 32px; border-radius: 5px; border: 1px solid #2B2F67; background: #FFF; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.10); display: flex; justify-content: center; align-items: center;">
                             All <b> ({{ App\Models\Task::count() }})</b>
                         </div>
-                        <a class="btn" href="{{route('admin.task.create')}}">Create Task</a>
+                        <a class="btn" href="{{route('admin.task.create')}}" style="background-color: #606BD0 ; color:#FFF" >Create New Task</a>
 
                        
 
@@ -74,10 +74,11 @@
                             <div class="col-md-4 mb-3 d-flex gap-2">
 
                                 <input type="date" name="date" class="form-control w-100 shadow"
-                                    placeholder="Select Due Date" />
+                                placeholder="Filter by Due Date" 
+                                />
 
                                 <select class="form-control w-100 shadow" id="status" name="status">
-                                    <option value="">Select status</option>
+                                    <option value="">Filter by status</option>
                                     <option value="pending">Pending</option>
                                     <option value="in_progress">In Progress</option>
                                     <option value="completed">Completed</option>
@@ -127,7 +128,7 @@
                                             </td>
 
                                             <td class="table_status">
-                                                {{ $task->created_at->format('d/m/Y') }}
+                                                {{ @$task->due_date }}
                                             </td>
                                             <td class="table_status">
                                                 {{ @$task->user->name }}

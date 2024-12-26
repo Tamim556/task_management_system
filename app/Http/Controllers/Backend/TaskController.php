@@ -16,6 +16,25 @@ class TaskController extends Controller
 {
     //
 
+    public function allTask(){
+
+        return 'hi';
+
+        // $task = Task::where('id' , $task)->first();
+
+        // return view('backend.task.view' , compact('task'));
+
+    }
+
+
+    public function show($task){
+
+        $task = Task::where('id' , $task)->first();
+
+        return view('backend.task.view' , compact('task'));
+
+    }
+
     public function search(Request $request){
 
 
@@ -54,6 +73,8 @@ class TaskController extends Controller
                 'title' => 'required',
                 'task_body' => 'required',
                 'status' => 'required',    
+                'due_date' => 'required',    
+
     
             ]);
     
@@ -66,6 +87,9 @@ class TaskController extends Controller
                 $task = new Task();
                 $task->title = $request->title;
                 $task->status = $request->status;
+                $task->created_by = Auth::user()->id;
+
+                $task->due_date = $request->due_date;
 
                 $task->task_body = $request->task_body;
                 $task->image = $request->main_image;
@@ -105,7 +129,9 @@ class TaskController extends Controller
         $validator = Validator::make($request->all(),[
             'title' => 'required',
                 'task_body' => 'required',
-                'status' => 'required',    
+                'status' => 'required', 
+                'due_date' => 'required',    
+   
 
         ]);
 
@@ -124,6 +150,8 @@ class TaskController extends Controller
             $task->status = $request->status;
             $task->task_body = $request->task_body;
             $task->image = $request->main_image;
+            $task->due_date = $request->due_date;
+
 
 
             $task->update();

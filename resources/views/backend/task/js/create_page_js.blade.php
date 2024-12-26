@@ -67,62 +67,63 @@
         console.log(contents);
     }
 
- 
 
 
-    $(function(){
 
-        $("#taskStoreFrom").on('submit',function(e){
+    $(function() {
+
+        $("#taskStoreFrom").on('submit', function(e) {
             e.preventDefault();
-        // parent register
+            // parent register
 
             $.ajax({
-                url:$(this).attr('action'),
-                method:$(this).attr('method'),
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
                 data: new FormData(this),
-                processData:false,
-                datatype:JSON,
-                contentType:false,
-                beforeSend:function(){
+                processData: false,
+                datatype: JSON,
+                contentType: false,
+                beforeSend: function() {
 
                     $(document).find('span.error-text').text('');
                 },
 
-                success:function(data){
+                success: function(data) {
 
-                    if(data.status == false){
+                    if (data.status == false) {
 
                         console.log('hi');
-                        $.each(data.error, function(prefix, val){
-                            $('span.'+prefix+'_error').text(val[0]);
+                        $.each(data.error, function(prefix, val) {
+                            $('span.' + prefix + '_error').text(val[0]);
                         })
-                    }
-
-                    else{
+                    } else {
 
 
                         Swal.fire({
-                                     position: "top-end",
-                                        icon: "success",
-                                        title: data.message,
-                                        showConfirmButton: false,
-                                        timer: 1500,
-                                    });
+                            position: "top-end",
+                            icon: "success",
+                            title: data.message,
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
 
-                                    $('#taskStoreFrom')[0].reset();
+                        $('#taskStoreFrom')[0].reset();
 
-                                //    window.location.href = '../index';
+                        $('#task_body').html('');      
 
-                                    // $('#imageDiv').load(location.href + ' #imageDiv');
+
+                        window.location.href = '../task/index';
+
+                        $('#imageDiv').load(location.href + ' #imageDiv');
 
                     }
                 }
             });
 
 
-         });
-
         });
+
+    });
 
 
 
@@ -133,42 +134,35 @@
     }
 
     function selectImage(imageSrc, name) {
-        var imageType = document.getElementById('offcanvasBottom').getAttribute('data-image-type');
+    var imageType = document.getElementById('offcanvasBottom').getAttribute('data-image-type');
 
-        // console.log(imageType);
+    if (imageType === 'main') {
+        document.getElementById('main_image').value = name;
+        $('#selected-image').attr('src', imageSrc);
+        document.getElementById('image_div').style.display = 'block';
 
-        // console.log(imageSrc);
+        // Remove 'show-tick' and 'clicked' classes and hide tick marks from all divs
+        const divs = document.querySelectorAll('.custom-div');
+        divs.forEach(div => {
+            div.classList.remove('show-tick', 'clicked');
+            const tickMark = div.querySelector('.tick-mark');
+            if (tickMark) tickMark.style.display = 'none';
+        });
 
-
-        if (imageType === 'main') {
-            document.getElementById('main_image').value = name;
-            $('#selected-image').attr('src', imageSrc);
-            document.getElementById('image_div').style.display = 'block';
-
-            // Ensure only one image has the 'show-tick' and 'clicked' classes
-            const divs = document.querySelectorAll('.custom-div');
-            divs.forEach(div => {
-                div.classList.remove('show-tick');
-                div.classList.remove('clicked');
-            });
-
-            // Apply the classes to the selected image's container
-            const selectedDiv = document.querySelector(`.custom-div[data-image-name="${name}"]`);
-            if (selectedDiv) {
-                selectedDiv.classList.add('show-tick');
-                selectedDiv.classList.add('clicked');
-            }
-        }
-
-        if (imageType === 'summernote') {
-            console.log(imageSrc);
-
-            $('#task_body').summernote('editor.insertImage', imageSrc);
-
-
-
+        // Apply classes to the selected image's container and show the tick mark
+        const selectedDiv = document.querySelector(`.custom-div[data-image-name="${name}"]`);
+        if (selectedDiv) {
+            selectedDiv.classList.add('show-tick', 'clicked');
+            const tickMark = selectedDiv.querySelector('.tick-mark');
+            if (tickMark) tickMark.style.display = 'block';
         }
     }
+
+    if (imageType === 'summernote') {
+        console.log(imageSrc);
+        $('#task_body').summernote('editor.insertImage', imageSrc);
+    }
+}
 
 
 
@@ -214,9 +208,7 @@
                         $('#taskUpdateFrom')[0].reset();
 
                         window.location.href = '../index';
-
                         // $('#imageDiv').load(location.href + ' #imageDiv');
-
 
                     }
                 }
@@ -244,7 +236,6 @@
                 datatype: JSON,
                 contentType: false,
                 beforeSend: function() {
-
                     $(document).find('span.error-text').text('');
                 },
 
@@ -258,7 +249,6 @@
                         })
                     } else {
 
-
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
@@ -267,12 +257,7 @@
                             timer: 2500,
                         });
 
-
-
                         $('#imageDiv').load(location.href + ' #imageDiv');
-
-
-
 
 
                     }
@@ -283,13 +268,4 @@
         });
 
     });
-
-
-
-
-
-
-
-
-  
 </script>

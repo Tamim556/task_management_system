@@ -160,6 +160,16 @@
 
                                   
 
+                                      <h1 class="mt-3 custom-bg">
+                                        Due Date
+                                    </h1>
+
+                                    <input type="date" name="due_date" class="form-control w-100"
+                                    placeholder="Select Due Date" />
+
+                                      <span class="text-danger error-text due_date_error"></span>
+
+
 
                                     <h1 class="mt-3 custom-bg">
                                         Task Image
@@ -227,23 +237,23 @@
 
 
                                     @foreach (App\Models\TaskImage::orderBy('id', 'desc')->take(3)->get() as $task_image)
-                     <div class="position-relative col-4 custom-div"
-                         style="background: #FFF; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); height: 200px; display: flex; align-items: end;">
-                         <img onclick="selectImage('{{ asset('storage/task-image/' . $task_image->name) }}','{{ $task_image->name }}' )"
-                             src="{{ asset('storage/task-image/' . $task_image->name) }}"
-                             alt="img" class="img-fluid w-100" style="height: 100%;">
-                         <div class="position-absolute w-100 py-1 px-3"
-                             style="bottom: 0; background: #FFF; box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10); font-size: 14px;">
-                             Image Name
-                             <div style="font-size: 14px;">
-                                 jpeg
-                             </div>
-                             <div class="position-absolute tick-mark">✓</div>
-
-                         </div>
-                     </div>
-                 @endforeach
-
+                                    <div class="position-relative col-4 custom-div" 
+                                         data-image-name="{{ $task_image->name }}" 
+                                         style="background: #FFF; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); height: 200px; display: flex; align-items: end;">
+                                        <img onclick="selectImage('{{ asset('storage/task-image/' . $task_image->name) }}','{{ $task_image->name }}')" 
+                                             src="{{ asset('storage/task-image/' . $task_image->name) }}" 
+                                             alt="img" class="img-fluid w-100" style="height: 100%;">
+                                        <div class="position-absolute w-100 py-1 px-3"
+                                             style="bottom: 0; background: #FFF; box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10); font-size: 14px;">
+                                            Image Name
+                                            <div style="font-size: 14px;">
+                                                jpeg
+                                            </div>
+                                            <div class="position-absolute tick-mark" style="display: none;">✓</div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                
 
 
                                 </div>
@@ -309,7 +319,7 @@
                                 @foreach (App\Models\TaskImage::orderBy('id', 'desc')->get() as $task_image)
                  <div class="position-relative col-2 p-0 custom-div"
                      style="background: #FFF; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); height: 200px; display: flex; align-items: end;">
-                     <img onclick="selectImage('{{ asset('storage/task-image/' . $task_image->name) }}','{{ $task_image->name }}' )"
+                     <img onclick="selectImage('{{ asset('storage/task-image/' . $task_image->name) }}','{{ $task_image->name }}')" 
                          src="{{ asset('storage/task-image/' . $task_image->name) }}"
                          alt="img" class="img-fluid w-100" style="height: 100%;">
                      <div class="position-absolute w-100 py-1 px-3"

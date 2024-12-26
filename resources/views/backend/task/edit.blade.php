@@ -86,7 +86,7 @@
                                         @csrf
 
 
-                                        <input type="hidden" name="main_image" id="main_image" value="">
+                                        <input type="hidden" name="main_image" id="main_image" value="{{$task->image}}">
 
                                         <input type="hidden" name="task_id" id="" value="{{$task->id}}">
 
@@ -151,7 +151,14 @@
 
                                       <span class="text-danger error-text status_error"></span>
 
+                                      <h1 class="mt-3 custom-bg">
+                                        Due Date
+                                    </h1>
 
+                                    <input type="date" name="due_date" class="form-control w-100" value="{{$task->due_date}}"
+                                    placeholder="Select Due Date" />
+
+                                      <span class="text-danger error-text due_date_error"></span>
                                   
 
 
