@@ -1,5 +1,6 @@
 # task_management_system
 
+# installation
 
 git clone https://github.com/Tamim556/task_management_system.git
 
@@ -25,10 +26,15 @@ run command : php artisan serve
 
 
 for authentication used Laravel/brizze 
-
 for API uses used laravel/sanctum 
 
-There have 1 Api 
+# Functionality
+
+user can login, Registration, logout
+
+Task CRUD Operations
+
+and 1 Api 
 
 for all tasks get 
 http://127.0.0.1:8000/api/tasks
